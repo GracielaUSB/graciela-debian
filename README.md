@@ -4,7 +4,7 @@ Debian package for graciela
 # User instructions
 Just download graciela_2.X-Y.deb and install it.
 
-# Mantainer Instructions
+# Maintainer Instructions
 To update the package,
  
   * Change the versions appropriately.
