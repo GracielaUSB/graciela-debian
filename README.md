@@ -7,11 +7,13 @@ Just download graciela_2.X.Y-Z~OS~ARCH.deb and install it.
 # Maintainer Instructions
 To update the package,
  
-  * Change the versions appropriately.
-  * Check the DEBIAN/control file.
-  * Run `env DESTDIR=$PWD/graciela_2.X.Y-Z~OS~ARCH make -C $graciela`, 
-    where `$graciela` is the main git repository.
-  * Run `env DESTDIR=$PWD/graciela_2.X.Y-Z~OS~ARCH make -C $graciela install`, 
-  * Run `env DESTDIR=$PWD/graciela_2.X.Y-Z~OS~ARCH make -C $graciela clean`, 
-  * Run `fakeroot dpkg-deb --build graciela_2.X.Y-Z~OS~ARCH`
+  * Checkout the appropriate branch (OS-ARCH) and follow the
+    instructions in the corresponding README file.
+
+  * Delete the old .deb file with
+  	`git rm graciela_2.X'.Y'-Z'~OS~ARCH.deb`
+
+  * Bring the new .deb file with
+    `git checkout OS-ARCH "*.deb"`
+
   * Commit.
