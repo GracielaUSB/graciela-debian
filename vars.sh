@@ -1,0 +1,2 @@
+GRACIELA_DISTR="ubuntu"
+GRACIELA_ARCH="amd64"
