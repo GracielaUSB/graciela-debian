@@ -5,13 +5,5 @@ Debian package for graciela
 Just download graciela_2.X.Y-Z~OS~ARCH.deb and install it.
 
 # Maintainer Instructions
-To update the package,
- 
-  * Change the versions appropriately.
-  * Check the DEBIAN/control file.
-  * Run `env DESTDIR=$PWD/graciela_2.X.Y-Z~OS~ARCH make -C $graciela`, 
-    where `$graciela` is the main git repository.
-  * Run `env DESTDIR=$PWD/graciela_2.X.Y-Z~OS~ARCH make -C $graciela install`, 
-  * Run `env DESTDIR=$PWD/graciela_2.X.Y-Z~OS~ARCH make -C $graciela clean`, 
-  * Run `fakeroot dpkg-deb --build graciela_2.X.Y-Z~OS~ARCH`
-  * Commit.
+Just run `env GRACIELA_VERSION=<THE VERSION> GRACIELA_GIT=<THE GIT> ./build.sh`,
+substituting `<THE VERSION>` and `<THE GIT>` appropriately
