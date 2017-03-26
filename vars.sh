@@ -1,0 +1,2 @@
+GRACIELA_DISTR="debian"
+GRACIELA_ARCH="amd64"
