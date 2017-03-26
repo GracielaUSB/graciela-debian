@@ -7,8 +7,8 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # 1. Set and check variables
-GRACIELA_DISTR="ubuntu"
-GRACIELA_ARCH="i386"
+source vars.sh
+GRACIELA_GIT=${GRACIELA_GIT/#\~/$HOME}
 if [ -z ${GRACIELA_VERSION:-""} ]; then
     echo 'Variable $GRACIELA_VERSION must be set'
     exit 1
@@ -33,18 +33,21 @@ Maintainer: Moisés Ackerman <unacson@gmail.com>
 Description: Installs the graciela compiler and runtime libraries\
 " > graciela/DEBIAN/control
 
-# 4. Make graciela
+# 4. Pull graciela
+( cd ${GRACIELA_GIT/#\~/$HOME}; git pull )
+
+# 5. Make graciela
 make -C $GRACIELA_GIT
 
-# 5. Make install graciela
+# 6. Make install graciela
 env DESTDIR=$PWD/graciela make -C $GRACIELA_GIT install
 
-# 6. Rename graciela folder to include version and distribution
+# 7. Rename graciela folder to include version and distribution
 graciela_vda="graciela_${GRACIELA_VERSION}~${GRACIELA_DISTR}~${GRACIELA_ARCH}"
 mv graciela $graciela_vda
 
-# 7. Build the package
+# 8. Build the package
 fakeroot dpkg-deb --build $graciela_vda
 
-# 8. Rename graciela folder back
+# 9. Rename graciela folder back
 mv $graciela_vda graciela
