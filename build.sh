@@ -27,7 +27,7 @@ Package: graciela
 Version: $GRACIELA_VERSION
 Section: misc
 Priority: optional
-Architecture: amd64
+Architecture: $GRACIELA_ARCH
 Depends: clang-3.5 (>= 1:3.5), libc6 (>= 2.19)
 Maintainer: Moisés Ackerman <unacson@gmail.com>
 Description: Installs the graciela compiler and runtime libraries\
